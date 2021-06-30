@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Intersection Observer</title>
+</head>
+<style>
+    *{
+        padding:0;
+        margin:0;
+        box-shadow: border-box;
+    }
+    body{
+    }
+    .banner{
+        display:flex;
+        align-items: center;
+        justify-content:center;
+        background:rgba(0,0,0,0.7);
+        color:#fff;
+        min-height:100vh;
+    }
+    .section1,.section2,.section3{
+        display:flex;
+        align-items: center;
+        padding: 5vmin 7vmin;
+        min-height:50vh;
+    }
+    .section1{
+        background-color: red;
+        color: #fff;
+    }
+    .section2{
+        background-color:green;
+        color:#fff;
+    }
+    .section3{
+        background-color:blue;
+        color: #fff;
+    }
+</style>
+<body>
+    <main>
+        <div class="banner">
+            <h2>Intersection Observers are fun.</h2>
+        </div>
+        <div class="section1">
+            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Dicta debitis, dolores delectus quam minima voluptates veniam possimus, ut quia dolorum cupiditate illo harum non mollitia ad magni perferendis odio eius fugit exercitationem. Recusandae, repellat ipsa dolores optio obcaecati maiores suscipit non modi eius ea dolorem sunt quisquam officiis harum sit, nobis odio libero. Quae, voluptatum aliquid dolorum consequatur dolore dolorem temporibus beatae officia eligendi illum quod et fugit? Sed, hic impedit. Quidem quibusdam nisi adipisci et recusandae. Tempora itaque repellendus deserunt molestiae est eius obcaecati aperiam rem incidunt soluta et illum, officia, quia nostrum! Eaque ad aliquid nostrum facilis dicta!</p>
+        </div>
+        <div class="section2">
+            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Dicta debitis, dolores delectus quam minima voluptates veniam possimus, ut quia dolorum cupiditate illo harum non mollitia ad magni perferendis odio eius fugit exercitationem. Recusandae, repellat ipsa dolores optio obcaecati maiores suscipit non modi eius ea dolorem sunt quisquam officiis harum sit, nobis odio libero. Quae, voluptatum aliquid dolorum consequatur dolore dolorem temporibus beatae officia eligendi illum quod et fugit? Sed, hic impedit. Quidem quibusdam nisi adipisci et recusandae. Tempora itaque repellendus deserunt molestiae est eius obcaecati aperiam rem incidunt soluta et illum, officia, quia nostrum! Eaque ad aliquid nostrum facilis dicta!</p>
+        </div>
+        <div class="section3">
+            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Dicta debitis, dolores delectus quam minima voluptates veniam possimus, ut quia dolorum cupiditate illo harum non mollitia ad magni perferendis odio eius fugit exercitationem. Recusandae, repellat ipsa dolores optio obcaecati maiores suscipit non modi eius ea dolorem sunt quisquam officiis harum sit, nobis odio libero. Quae, voluptatum aliquid dolorum consequatur dolore dolorem temporibus beatae officia eligendi illum quod et fugit? Sed, hic impedit. Quidem quibusdam nisi adipisci et recusandae. Tempora itaque repellendus deserunt molestiae est eius obcaecati aperiam rem incidunt soluta et illum, officia, quia nostrum! Eaque ad aliquid nostrum facilis dicta!</p>
+        </div>
+    </main>
+
+    <script>
+        const banner = document.querySelector('.banner');
+        const section1 = document.querySelector('.section1');
+        const options = {
+            root: null,
+            rootMargin: '-10px 0px 0px 0px',
+            threshold:1,
+
+        };
+        const observer = new IntersectionObserver((entries,observer)=>{
+            entries.forEach(entry=> {
+                if(entry.isIntersecting){
+                    console.log(entry.target);
+                }
+                // banner.style.backgroundColor = '#dedede ';
+                // observer.unobserve(section1);
+            })
+        },options)
+
+        observer.observe(section1);
+    </script>
+</body>
+</html>

@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FlexBox</title>
+</head>
+<style>
+    :root{
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        font-size: 1em;
+    }
+    *{
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+    html{
+        scroll-behavior: smooth;
+    }
+    body{
+        margin: 0;
+    }
+</style>
+<link rel="stylesheet" href="./learn-flex.css">
+<body>
+    <nav>
+        <div class="brand">COURSE HERO</div>
+        <ul>
+            <li><a href="Learn-flexbox.html" class="active">Home</a></li>
+            <li><a href="#courses">Courses</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+        <div class="menu">
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+        </div>
+    </nav>
+    <main>
+        <div id="banner">
+            <div class="welcome-txt">
+                <h1>
+                    Learn Anywhere,<br>Anytime <br> with <span class="brand">COURSE HERO</span>
+                </h1>
+                <a href="#courses" class="start-now-btn">Start Now</a>
+            </div>
+        </div>
+        <div id="courses">
+            <h2>Our Courses</h2>
+            <div class="container">
+                <div class="card">
+                    <div class="card-title">HTML Basic</div>
+                    <div class="card-body">
+                        <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Officia, unde?</p>
+                        <p class="price">0.00$</p>
+                         <div class="btn-group">
+                              <a href="#" class="buy-now-btn">Buy Now</a>
+                              <a href="#" class="see-more">See More</a>
+                         </div>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-title">CSS 3 Basic</div>
+                    <div class="card-body">
+                        <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Officia, unde?</p>
+                        <p class="price">0.00$</p>
+                         <div class="btn-group">
+                              <a href="#" class="buy-now-btn">Buy Now</a>
+                              <a href="#" class="see-more">See More</a>
+                         </div>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-title">Javascript Beginner</div>
+                    <div class="card-body">
+                        <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Officia, unde?</p>
+                        <p class="price">5.99$</p>
+                         <div class="btn-group">
+                              <a href="#" class="buy-now-btn">Buy Now</a>
+                              <a href="#" class="see-more">See More</a>
+                         </div>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-title">Basic Web Development</div>
+                    <div class="card-body">
+                        <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Officia, unde?</p>
+                        <p class="price">15.99$</p>
+                         <div class="btn-group">
+                              <a href="#" class="buy-now-btn">Buy Now</a>
+                              <a href="#" class="see-more">See More</a>
+                         </div>
+                    </div>
+                </div>
+            </div>
+            
+        </div>
+        <div id="about">
+            <h2>Who Are We?</h2>
+            <div class="about-us-container">
+                <div class="img-container">
+                    <img src="./assets/iStock-863497498-web_d39140a109ff79fd8b934b43da0aaf53.jpg" alt="">
+                </div>
+                <div class="about">
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sit earum ullam inventore at voluptatum veritatis, tempore quaerat. Cumque aliquid vero deserunt? Quis cumque eos deleniti deserunt ipsum quidem adipisci ad.</p>
+                    <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Repudiandae eaque atque, est sint ab autem blanditiis maxime neque eligendi molestiae ipsam modi non ipsa vitae tempore deleniti voluptas quae eveniet accusamus, ea, voluptate eos odit! Suscipit, hic fugiat! Officiis nesciunt veritatis dolorem possimus amet omnis corporis quaerat atque ea est.</p>
+                </div>
+            </div>
+        </div>
+        <div id="contact">
+            <h2>Contact Now</h2>
+            <div class="contact-form">
+                <form action="#">
+                    <div>
+                        <label for="name">Name</label>
+                        <input type="text" id="name">
+                    </div>
+                    <div>
+                        <label for="email">Email</label>
+                        <input type="email" id="email">
+                    </div>
+                    <div>
+                        <label for="desc">Description</label>
+                        <textarea name="desc" id="desc" cols="30" rows="10"></textarea>
+                    </div>
+                    <div>
+                        <input type="button" value="Send">
+                    </div>
+                </form>
+            </div>
+        </div>
+    </main>
+    <footer>
+        <p>CopyRight &copy; Course Hero 2021-2022</p>
+    </footer>
+    <script>
+        let links =  document.querySelectorAll('a');
+        let menu = document.querySelector('.menu');
+
+        Array.from(links).map((link)=>{
+            link.addEventListener('click',()=>{
+               let acitveLink = document.querySelector('.active');
+               if(acitveLink){
+                   acitveLink.classList.remove('active');
+                   link.classList.add('active');
+               }else{
+                   link.classList.add('active');
+               }
+           })
+       })
+
+       menu.addEventListener('click',()=>{
+           let ul = document.querySelector('ul');
+           menu.classList.toggle('open');
+           ul.classList.toggle('menu-open');
+       });
+ 
+    </script>
+</body>
+</html>
